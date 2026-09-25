@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社Dulce 新卒採用 | 価値ある美容師をともに目指す</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2B2420;
+    --ink-soft:#F8F1E3;
+    --ivory:#FFFFFF;
+    --cream:#4A4038;
+    --gold:#8B6914;
+    --gold-bright:#A9803D;
+    --silver:#7C7164;
+    --wine:#7A2E2E;
+    --line: rgba(155,120,50,0.3);
+    --draft-bg: rgba(155,120,50,0.10);
+    --draft-border:#9C7A3C;
+    --maxw:920px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--cream);
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Shippori Mincho', serif;}
+  a{color:inherit;}
+  img,svg{max-width:100%;display:block;}
+
+  /* signature: gold thread running the length of the page */
+  #thread-wrap{position:fixed; left:0; top:0; height:100%; width:40px; z-index:1; pointer-events:none;}
+  #thread-wrap svg{height:100%; width:100%;}
+  #thread-path{
+    fill:none; stroke:var(--gold); stroke-width:1.2; opacity:0.55;
+    stroke-dasharray:2400; stroke-dashoffset:2400;
+    animation:draw 3.2s ease-out forwards;
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  @media (prefers-reduced-motion: reduce){
+    #thread-path{animation:none; stroke-dashoffset:0;}
+  }
+  @media (max-width:720px){ #thread-wrap{width:18px;} }
+
+  header{
+    position:sticky; top:0; z-index:20;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px; background:rgba(255,255,255,0.88); backdrop-filter:blur(6px); box-shadow:0 1px 0 rgba(0,0,0,0.03);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{font-family:'Shippori Mincho',serif; font-size:1.3rem; letter-spacing:0.12em;}
+  .brand small{display:block; font-family:'Zen Kaku Gothic New',sans-serif; font-size:0.55rem; letter-spacing:0.25em; color:var(--silver); font-weight:400;}
+  .stores{display:flex; gap:14px; font-size:0.72rem; letter-spacing:0.1em; color:var(--silver);}
+  .cta-top{
+    border:1px solid var(--gold); color:var(--gold); padding:8px 20px;
+    border-radius:2px; font-size:0.8rem; letter-spacing:0.08em; text-decoration:none;
+    transition:background .2s, color .2s;
+  }
+  .cta-top:hover, .cta-top:focus-visible{background:var(--gold); color:#FFFFFF;}
+
+  section{padding:88px 28px; position:relative; z-index:2;}
+  .wrap{max-width:var(--maxw); margin:0 auto;}
+  .eyebrow{
+    display:inline-block; font-size:0.72rem; letter-spacing:0.28em; color:var(--gold);
+    border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:22px;
+  }
+  h2{font-size:clamp(1.5rem,3.4vw,2.2rem); font-weight:700; margin:0 0 28px; letter-spacing:0.04em;}
+  p{color:var(--cream); font-size:1rem;}
+  .lead{font-size:1.08rem; color:var(--ink);}
+
+  /* HERO */
+  #hero{padding-top:120px; padding-bottom:100px;}
+  #hero .kicker{color:var(--gold); letter-spacing:0.3em; font-size:0.78rem; margin-bottom:20px;}
+  #hero h1{
+    font-size:clamp(2rem,5.6vw,3.6rem); line-height:1.5; font-weight:700; margin:0 0 26px;
+  }
+  #hero h1 span{color:var(--gold-bright);}
+  #hero .sub{max-width:640px; color:var(--silver); font-size:1rem;}
+  .hero-media{
+    margin-top:56px; aspect-ratio:16/8; border:1px dashed var(--draft-border);
+    display:flex; align-items:center; justify-content:center; color:var(--gold);
+    background:var(--draft-bg); font-size:0.85rem; letter-spacing:0.1em;
+  }
+
+  /* PROBLEM cards */
+  .grid3{display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+  .checklist-grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); margin-bottom:10px;}
+  .check-item{
+    display:flex; align-items:center; gap:12px; background:var(--ink-soft); border:1px solid var(--line);
+    border-radius:2px; padding:16px 18px; font-size:0.95rem; color:var(--ink);
+  }
+  .check-item .mark{
+    flex:none; width:22px; height:22px; border:1px solid var(--gold); border-radius:3px; color:var(--gold-bright);
+    display:flex; align-items:center; justify-content:center; font-size:0.85rem;
+  }
+  .card{
+    background:var(--ink-soft); border:1px solid var(--line); border-radius:2px; padding:26px;
+  }
+  .card .q{color:var(--silver); font-size:0.85rem; margin-bottom:10px;}
+  .card .a{color:var(--ink); font-weight:500;}
+
+  /* PROMISE / stats */
+  .stat-row{display:flex; flex-wrap:wrap; gap:40px; margin:36px 0 44px;}
+  .stat{min-width:150px;}
+  .stat .num{font-family:'Shippori Mincho',serif; font-size:2.1rem; color:var(--gold-bright);}
+  .stat .label{font-size:0.78rem; color:var(--silver); letter-spacing:0.06em; margin-top:4px;}
+  .system-list{list-style:none; margin:0; padding:0; display:grid; gap:16px;}
+  .system-list li{
+    display:flex; gap:16px; align-items:flex-start; padding:18px 0; border-top:1px solid var(--line);
+  }
+  .system-list .tag{
+    flex:none; font-family:'Shippori Mincho',serif; color:var(--gold); font-size:0.85rem; letter-spacing:0.1em; width:118px;
+  }
+
+  /* MESSAGE (社長メッセージ) */
+  #message{background:var(--ink-soft);}
+  blockquote{
+    margin:0; border-left:2px solid var(--gold); padding-left:26px; white-space:pre-line;
+    font-family:'Shippori Mincho',serif; font-size:1.02rem; color:var(--ink); line-height:2.05;
+  }
+  .signee{margin-top:26px; color:var(--silver); font-size:0.85rem; letter-spacing:0.08em;}
+
+  /* interviews */
+  .interview{
+    border:1px dashed var(--draft-border); background:var(--draft-bg); border-radius:2px;
+    padding:24px; display:flex; gap:18px; align-items:center;
+  }
+  .interview .ph{
+    flex:none; width:64px; height:64px; border:1px solid var(--gold); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:0.65rem; color:var(--gold); text-align:center;
+  }
+  .draft-badge{
+    display:inline-block; font-size:0.68rem; letter-spacing:0.12em; color:#FFFFFF; background:var(--gold);
+    padding:2px 8px; border-radius:2px; margin-bottom:10px;
+  }
+
+  /* day flow */
+  .flow{display:grid; gap:0;}
+  .flow-row{display:grid; grid-template-columns:90px 1fr; gap:20px; padding:16px 0; border-top:1px solid var(--line);}
+  .flow-row .time{color:var(--gold-bright); font-family:'Shippori Mincho',serif;}
+
+  /* tables */
+  table{width:100%; border-collapse:collapse; font-size:0.92rem;}
+  table th, table td{text-align:left; padding:14px 12px; border-top:1px solid var(--line); vertical-align:top;}
+  table th{color:var(--silver); font-weight:400; width:32%; letter-spacing:0.04em;}
+
+  .store-grid{display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+  .store-card{border:1px solid var(--line); padding:22px; border-radius:2px;}
+  .store-card h3{margin:0 0 6px; color:var(--gold-bright); font-size:1.1rem;}
+  .store-card .area{color:var(--silver); font-size:0.82rem; margin-bottom:14px;}
+
+  /* CLOSING */
+  #closing{text-align:center; background:linear-gradient(180deg, var(--ivory) 0%, var(--ink-soft) 100%);}
+  .apply-btn{
+    display:inline-block; margin-top:20px; background:var(--gold); color:#FFFFFF;
+    padding:18px 52px; border-radius:2px; font-size:1rem; letter-spacing:0.1em; text-decoration:none;
+    border:none; cursor:pointer; font-family:'Zen Kaku Gothic New',sans-serif; font-weight:700;
+    transition:transform .15s, background .15s;
+  }
+  .apply-btn:hover, .apply-btn:focus-visible{background:var(--gold-bright); transform:translateY(-2px);}
+
+  footer{padding:36px 28px; text-align:center; color:var(--silver); font-size:0.75rem; border-top:1px solid var(--line);}
+
+  /* MODAL: 適性アンケート */
+  #survey-overlay{
+    position:fixed; inset:0; background:rgba(30,24,15,0.65); z-index:50;
+    display:none; align-items:flex-start; justify-content:center; overflow-y:auto; padding:40px 16px;
+  }
+  #survey-overlay.open{display:flex;}
+  #survey-modal{
+    background:#FFFFFF; color:var(--ink); max-width:600px; width:100%; border-radius:4px;
+    padding:40px 32px 32px; position:relative;
+  }
+  #survey-modal h3{font-size:1.3rem; margin:0 0 6px; color:var(--ink);}
+  #survey-modal .lead-note{color:#6b6355; font-size:0.85rem; margin-bottom:28px;}
+  .close-x{
+    position:absolute; top:16px; right:18px; background:none; border:none; font-size:1.4rem;
+    cursor:pointer; color:#6b6355; line-height:1;
+  }
+  .field{margin-bottom:24px;}
+  .field label{display:block; font-size:0.85rem; font-weight:700; margin-bottom:8px; color:var(--ink);}
+  .field .hint{font-size:0.75rem; color:#8a8072; font-weight:400; margin-left:6px;}
+  .field input[type=text], .field input[type=tel], .field input[type=email], .field textarea, .field select{
+    width:100%; padding:11px 12px; border:1px solid #cfc6b4; border-radius:2px; font-family:inherit; font-size:0.95rem;
+    background:#fff;
+  }
+  .field textarea{min-height:80px; resize:vertical;}
+  .scale{display:flex; gap:8px;}
+  .scale label{
+    flex:1; text-align:center; border:1px solid #cfc6b4; border-radius:2px; padding:10px 4px; font-size:0.78rem;
+    cursor:pointer; font-weight:400; color:#6b6355;
+  }
+  .scale input{display:none;}
+  .scale input:checked + span{font-weight:700; color:var(--ink);}
+  .scale label:has(input:checked){border-color:var(--gold); background:rgba(176,141,87,0.12);}
+  .check-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .check-grid label{
+    display:flex; gap:8px; align-items:flex-start; font-size:0.85rem; font-weight:400; color:#3a352c;
+    border:1px solid #cfc6b4; border-radius:2px; padding:10px 12px; cursor:pointer;
+  }
+  .submit-btn{
+    width:100%; background:var(--gold); color:#FFFFFF; border:none; padding:16px; border-radius:2px;
+    font-size:0.95rem; letter-spacing:0.08em; cursor:pointer; font-weight:700;
+  }
+  .submit-btn:hover, .submit-btn:focus-visible{background:var(--wine);}
+  #survey-thanks{display:none; text-align:center; padding:20px 0;}
+  #survey-thanks.show{display:block;}
+  #survey-thanks .mark{font-family:'Shippori Mincho',serif; font-size:1.4rem; color:var(--gold); margin-bottom:14px;}
+
+  @media (max-width:640px){
+    header{padding:14px 18px;}
+    .stores{display:none;}
+    section{padding:64px 18px;}
+    .check-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div id="thread-wrap" aria-hidden="true">
+  <svg viewBox="0 0 40 1600" preserveAspectRatio="none">
+    <path id="thread-path" d="M20,0 C 5,150 35,300 20,450 C 5,600 35,750 20,900 C5,1050 35,1200 20,1350 C10,1450 30,1520 20,1600" />
+  </svg>
+</div>
+
+<header>
+  <div class="brand">Dulce<small>HAIR SALON GROUP</small></div>
+  <div class="stores"><span>oro</span><span>plata</span><span>mem</span></div>
+  <a class="cta-top" href="#closing">応募する</a>
+</header>
+
+<!-- ============ LEAD ============ -->
+<section id="hero">
+  <div class="wrap">
+    <div class="kicker">株式会社Dulce　新卒採用</div>
+    <h1>早くデビューすることが、<br>ゴールじゃない。<br><span>10年後も、20年後も</span>選ばれ続ける美容師へ。</h1>
+    <p class="sub">「本当の価値ある美容師」へ。oro / plata / mem ─ 札幌円山エリアで展開する美容室グループDulceの新卒採用です。</p>
+    <div class="hero-media" style="border:none; padding:0; overflow:hidden;"><svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="サロンの雰囲気イメージ">
+<rect width="800" height="400" fill="#F8F1E3"/>
+<circle cx="560" cy="180" r="120" fill="none" stroke="#9C7A3C" stroke-width="3" opacity="0.6"/>
+<circle cx="560" cy="180" r="112" fill="#EFE6D3"/>
+<path d="M420,400 L420,260 C420,230 450,210 500,210 C550,210 580,230 580,260 L580,400 Z" fill="#2B2420" opacity="0.88"/>
+<rect x="470" y="150" width="60" height="90" rx="10" fill="#D8C7A8"/>
+<circle cx="500" cy="150" r="30" fill="#E9C4A0"/>
+<path d="M472,140 C472,118 484,104 500,104 C516,104 528,118 528,140 C528,128 520,122 500,122 C480,122 472,128 472,140 Z" fill="#4a3324"/>
+<rect x="150" y="80" width="4" height="220" fill="#9C7A3C" opacity="0.6"/>
+<path d="M130,90 C110,70 110,40 140,30 C150,55 150,55 150,90 Z" fill="#5c7a5a"/>
+<path d="M170,95 C190,72 192,42 160,30 C150,58 150,58 150,95 Z" fill="#3f5c3f"/>
+<rect x="640" y="300" width="120" height="6" fill="#9C7A3C" opacity="0.5"/>
+<rect x="40" y="300" width="120" height="6" fill="#9C7A3C" opacity="0.5"/>
+</svg></div>
+  </div>
+</section>
+
+<!-- ============ 経営理念（バナー） ============ -->
+<section id="philosophy-banner" style="padding-top:0; padding-bottom:56px;">
+  <div class="wrap">
+    <div style="border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:36px 8px; text-align:center;">
+      <span class="eyebrow" style="margin-bottom:16px;">経営理念</span>
+      <h2 style="font-size:clamp(1.3rem,3vw,1.8rem); margin-bottom:14px;">愛と感謝。</h2>
+      <p class="lead" style="max-width:640px; margin:0 auto;">スタッフにも、お客様にも。<br><strong style="color:var(--gold-bright);">"あなたにとって気持ちいい空間を。"</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM / POSITIONING ============ -->
+<section id="problem">
+  <div class="wrap">
+    <span class="eyebrow">なぜ、幅広いお客様を担当できる美容師を目指すのか</span>
+    <h2>アシスタント時代と、スタイリスト時代で、<br>担当するお客様は変わっていきます。</h2>
+    <p class="lead">アシスタント時代は、カラーモデルやパーマモデルなどを通して、若い世代のお客様を担当する機会が多くあります。<br>しかし、スタイリストになると、お客様の年齢層は広がっていきます。</p>
+    <div class="checklist-grid" style="margin:28px 0;">
+      <div class="check-item" style="justify-content:center;">20代</div>
+      <div class="check-item" style="justify-content:center;">30代</div>
+      <div class="check-item" style="justify-content:center;">40代</div>
+      <div class="check-item" style="justify-content:center;">50代</div>
+    </div>
+    <p class="lead">年齢が変われば、髪の悩みも、ライフスタイルも変わります。だからこそ、若い世代だけではなく、<strong style="color:var(--gold-bright);">幅広い年代のお客様を理解し、提案できる美容師</strong>を目指します。</p>
+  </div>
+</section>
+
+<!-- ============ POSITIONING: 価値ある美容師とは ============ -->
+<section id="positioning" style="background:var(--ink-soft);">
+  <div class="wrap">
+    <span class="eyebrow">「価値ある美容師」とは？</span>
+    <h2>技術が上手いだけでは、<br>長く選ばれ続ける美容師にはなれません。</h2>
+    <p class="lead">私たちが考える「価値ある美容師」とは、<br><strong style="color:var(--gold-bright);">技術力 ＋ 提案力 ＋ 接客力 ＋ 人間力 ＋ 数字を理解する力</strong><br>を身につけた美容師。お客様から、「この人にお願いしたい」と思っていただける美容師を目指します。</p>
+  </div>
+</section>
+
+<!-- ============ PROMISE: 教育制度 ============ -->
+<section id="promise">
+  <div class="wrap">
+    <span class="eyebrow">美容師として長く活躍するための4つの教育制度</span>
+    <h2>人間力・接客力・技術力・数字力。<br>この4つを、本気で鍛えられます。</h2>
+
+    <div class="stat-row">
+      <div class="stat"><div class="num">10,000円以上</div><div class="label">デビュー時に目指す客単価</div></div>
+      <div class="stat"><div class="num">13,000〜16,000円</div><div class="label">現スタイリストの客単価</div></div>
+      <div class="stat"><div class="num">20代前半〜50代</div><div class="label">幅広い年齢層のお客様に対応</div></div>
+    </div>
+
+    <ul class="system-list">
+      <li><span class="tag">人間力</span><span>自分を理解し、成長し続ける力。外部カウンセリングシステムで鍛えます。</span></li>
+      <li><span class="tag">接客・ホスピタリティ</span><span>「またあなたにお願いしたい」と思っていただける力を、専用の教育システムで学びます。</span></li>
+      <li><span class="tag">技術力</span><span>感覚だけに頼らず、理解して施術できる力。細かく設定された技術指導カリキュラムで段階的に習得。</span></li>
+      <li><span class="tag">数字・売上をつくる力</span><span>自分自身で考え、安定した売上をつくる力。美容師が苦手になりがちな数字への教育システムです。</span></li>
+    </ul>
+
+    <p style="margin-top:36px; color:var(--silver); font-size:0.92rem;">
+      私たちが目指すのは、低価格でたくさんのお客様を担当する働き方ではありません。技術・提案・接客・お客様との信頼関係。一人ひとりのお客様に価値を感じていただき、選ばれ続ける美容師を目指します。
+    </p>
+    <p style="margin-top:18px; color:var(--silver); font-size:0.92rem;">
+      新規集客だけに頼るのではなく、次回予約によってお客様を積み上げていく。だから、「休んだら売上がゼロになる美容師」ではなく、長く、安定して働ける美容師へ。
+    </p>
+  </div>
+</section>
+
+<!-- ============ PROMISE: サポート体制 ============ -->
+<section id="support">
+  <div class="wrap">
+    <span class="eyebrow">サポート体制</span>
+    <h2>先輩やスタッフ以外にも、<br>あなたを支える人がいます。</h2>
+    <p class="lead" style="margin-bottom:36px;">現場の人間関係だけに頼らない。売上や数字の管理、そして人間関係やメンタル面まで、外部から専門にサポートしてくれるメンバーが2名います。</p>
+    <div class="grid3" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+      <div class="interview">
+        <div class="ph" style="border:none; background:none;"><svg viewBox="0 0 100 100" width="64" height="64" role="img" aria-label="スタッフイメージ">
+<circle cx="50" cy="50" r="50" fill="#F6EFDF" stroke="#9C7A3C" stroke-width="1.5"/>
+<path d="M28,88 C28,68 36,58 50,58 C64,58 72,68 72,88 Z" fill="#B08D57"/>
+<circle cx="50" cy="42" r="17" fill="#D9A876"/>
+<path d="M32,39 C31,23 40,14 50,14 C60,14 69,23 68,39 C68,32 63,28 50,28 C37,28 32,32 32,39 Z" fill="#2a2118"/><path d="M67,32 C74,34 76,44 71,52 C69,45 68,38 65,33 Z" fill="#2a2118"/>
+<circle cx="44" cy="42" r="1.6" fill="#3a2f28"/>
+<circle cx="56" cy="42" r="1.6" fill="#3a2f28"/>
+<path d="M45,49 Q50,52 55,49" stroke="#3a2f28" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+</svg></div>
+        <div>
+          <span class="draft-badge">DRAFT枠</span><br>
+          <strong style="color:var(--ink);">売上・数字管理サポート担当</strong><br>
+          店舗運営の売上管理や数字づくりを外部の視点からサポート。一人で数字を抱え込まなくていい体制です。
+        </div>
+      </div>
+      <div class="interview">
+        <div class="ph" style="border:none; background:none;"><svg viewBox="0 0 100 100" width="64" height="64" role="img" aria-label="スタッフイメージ">
+<circle cx="50" cy="50" r="50" fill="#F0E7D5" stroke="#9C7A3C" stroke-width="1.5"/>
+<path d="M28,88 C28,68 36,58 50,58 C64,58 72,68 72,88 Z" fill="#7A2E2E"/>
+<circle cx="50" cy="42" r="17" fill="#E9C4A0"/>
+<path d="M33,36 C33,23 40,17 50,17 C60,17 67,23 67,36 C67,30 61,27 50,27 C39,27 33,30 33,36 Z" fill="#3a3a3a" opacity="0.9"/>
+<circle cx="44" cy="42" r="1.6" fill="#3a2f28"/>
+<circle cx="56" cy="42" r="1.6" fill="#3a2f28"/>
+<path d="M45,49 Q50,52 55,49" stroke="#3a2f28" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+</svg></div>
+        <div>
+          <span class="draft-badge">DRAFT枠</span><br>
+          <strong style="color:var(--ink);">人間関係・メンタルサポート担当</strong><br>
+          先輩や同僚とは別の相談窓口として、人間関係や気持ちの面を専門にサポート。外部カウンセリングの体制も含みます。
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:18px; color:var(--silver); font-size:0.85rem;">※お名前・お写真をいただき次第、差し替えます。</p>
+  </div>
+</section>
+
+<!-- ============ PROOF: 社長メッセージ ============ -->
+<section id="message">
+  <div class="wrap">
+    <span class="eyebrow">代表からのメッセージ</span>
+    <h2>共に、価値ある美容師を目指しましょう。</h2>
+    <blockquote>本当の価値ある美容師によって作り上げる美容室であり続けること。
+弊社の理念としている愛と感謝を大切にし、美容師の価値を下げず、幅広い年齢層と様々なお客様のライフスタイルに合わせた提案ができる美容師であること。
+
+そして満足と感動を与えることをモットーに、沢山のお客様から支持されることを喜びとし、日々探究心を持って自分の価値をしっかりと上げていく。安売りではなく、人間力・ホスピタリティ・技術をしっかりと磨き続ける美容師であること。
+
+そして関わるスタッフ、お客様が
+"貴方にとって気持ちいい空間を、、、"
+をモットーに。
+
+共に価値ある美容師を目指しましょう。</blockquote>
+    <div class="signee">株式会社Dulce　代表</div>
+  </div>
+</section>
+
+<!-- ============ PHILOSOPHY: 愛と感謝 ============ -->
+<section id="philosophy" style="background:var(--ink-soft);">
+  <div class="wrap">
+    <span class="eyebrow">私たちが大切にしている理念</span>
+    <h2>愛と感謝。</h2>
+    <p class="lead">美容師という仕事は、一人ではできません。<br>一緒に働くスタッフ。毎日ご来店くださるお客様。支えてくれる家族や周りの人。<br>たくさんの人との関わりの中で、私たちは美容師として成長することができます。</p>
+    <p class="lead" style="margin-top:20px;">だからこそ、人への感謝を忘れないこと。そして、目の前の人に愛を持って接すること。それが、私たちが大切にしている理念です。</p>
+  </div>
+</section>
+
+<!-- ============ PHILOSOPHY: 気持ちいい空間 ============ -->
+<section id="culture">
+  <div class="wrap">
+    <span class="eyebrow">スタッフにも、お客様にも。</span>
+    <h2>"あなたにとって気持ちいい空間を。"</h2>
+    <p class="lead" style="margin-bottom:28px;">お客様だけが居心地の良いサロンではなく、スタッフにとっても──</p>
+    <div class="checklist-grid">
+      <div class="check-item"><span class="mark">✓</span>安心できる</div>
+      <div class="check-item"><span class="mark">✓</span>相談できる</div>
+      <div class="check-item"><span class="mark">✓</span>助け合える</div>
+      <div class="check-item"><span class="mark">✓</span>自分らしく働ける</div>
+    </div>
+    <p class="lead" style="margin-top:24px;">お客様にとっても、スタッフにとっても、「ここに来ると気持ちがいい」と思える空間をつくる。それが、私たちが目指すサロンです。</p>
+  </div>
+</section>
+
+<!-- ============ こんな人を待っています ============ -->
+<section id="fit-check" style="background:var(--ink-soft);">
+  <div class="wrap">
+    <span class="eyebrow">こんな人を待っています</span>
+    <h2>「美容師になってよかった」と<br>思える未来を。</h2>
+    <div class="checklist-grid">
+      <div class="check-item"><span class="mark">✓</span>早くデビューすることだけを目的にしていない人</div>
+      <div class="check-item"><span class="mark">✓</span>幅広いお客様を担当できる美容師になりたい人</div>
+      <div class="check-item"><span class="mark">✓</span>安売りではなく、自分自身の価値を高めたい人</div>
+      <div class="check-item"><span class="mark">✓</span>技術だけでなく、接客力や人間力も磨きたい人</div>
+      <div class="check-item"><span class="mark">✓</span>お客様一人ひとりと、長く信頼関係を築きたい人</div>
+      <div class="check-item"><span class="mark">✓</span>「あなたにお願いしたい」と言われたい人</div>
+      <div class="check-item"><span class="mark">✓</span>将来も指名され続ける美容師になりたい人</div>
+      <div class="check-item"><span class="mark">✓</span>自分自身で売上をつくれる力を身につけたい人</div>
+      <div class="check-item"><span class="mark">✓</span>美容師として長く、安定して働きたい人</div>
+      <div class="check-item"><span class="mark">✓</span>自分の時間も大切にしながら、しっかり稼ぎたい人</div>
+      <div class="check-item"><span class="mark">✓</span>自分自身の価値を高め続けたい人</div>
+    </div>
+    <p class="lead" style="margin-top:28px;">早くデビューすることだけが目的ではありません。スタイリストになった後も、お客様から選ばれ続ける。自分自身の価値を高め続ける。美容師として、長く活躍する。そしていつか、「美容師になってよかった」と心から思える。そんな未来を、私たちと一緒につくりませんか。</p>
+  </div>
+</section>
+
+<!-- ============ PROOF: スタッフインタビュー ============ -->
+<section id="interviews">
+  <div class="wrap">
+    <span class="eyebrow">先輩スタッフの声</span>
+    <h2>実際に働くスタッフに聞きました</h2>
+    <div class="grid3">
+      <div class="interview"><div class="ph" style="border:none; background:none;"><svg viewBox="0 0 100 100" width="64" height="64" role="img" aria-label="スタッフイメージ">
+<circle cx="50" cy="50" r="50" fill="#F5EEDF" stroke="#9C7A3C" stroke-width="1.5"/>
+<path d="M28,88 C28,68 36,58 50,58 C64,58 72,68 72,88 Z" fill="#B08D57"/>
+<circle cx="50" cy="42" r="17" fill="#E9C4A0"/>
+<path d="M31,40 C31,24 40,15 50,15 C60,15 69,24 69,40 C69,34 66,30 66,30 L66,44 C63,36 60,33 50,33 C40,33 37,36 34,44 L34,30 C34,30 31,34 31,40 Z" fill="#4a3324"/>
+<circle cx="44" cy="42" r="1.6" fill="#3a2f28"/>
+<circle cx="56" cy="42" r="1.6" fill="#3a2f28"/>
+<path d="M45,49 Q50,52 55,49" stroke="#3a2f28" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+</svg></div><div><strong style="color:var(--ink);">アイサ</strong><span style="color:var(--silver); font-size:0.78rem;">(写真は後日差し替え予定)</span><br>1年10か月でデビューして、2年目で60万売り上げがあり、今後もまだまだ伸びそう。やりたい人にはグングン伸ばしてくれる企業。今はまだ若いお客様が多いが、将来的に幅広い年齢のお客様を担当できるようになるための指導をしてもらえている。</div></div>
+      <div class="interview"><div class="ph" style="border:none; background:none;"><svg viewBox="0 0 100 100" width="64" height="64" role="img" aria-label="スタッフイメージ">
+<circle cx="50" cy="50" r="50" fill="#EFE6D3" stroke="#9C7A3C" stroke-width="1.5"/>
+<path d="M28,88 C28,68 36,58 50,58 C64,58 72,68 72,88 Z" fill="#7A2E2E"/>
+<circle cx="50" cy="42" r="17" fill="#C98F62"/>
+<path d="M32,38 C30,22 39,13 50,13 C61,13 70,22 68,38 C68,30 62,26 50,26 C38,26 32,30 32,38 Z" fill="#241b15"/>
+<circle cx="44" cy="42" r="1.6" fill="#3a2f28"/>
+<circle cx="56" cy="42" r="1.6" fill="#3a2f28"/>
+<path d="M45,49 Q50,52 55,49" stroke="#3a2f28" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+</svg></div><div><strong style="color:var(--ink);">ヒナ</strong><span style="color:var(--silver); font-size:0.78rem;">(写真は後日差し替え予定)</span><br>入社前からシャンプー練習等をしたことによって入社時から色々なお客様と携われて、ぼーっとする時間もなく楽しく営業できてる。練習もほぼ毎日先輩が指導してくれているので成長が早く感じる。自分は理容師の免許も取ったのですが、会社が時間等の協力もしてくれる。</div></div>
+      <div class="interview"><div class="ph" style="border:none; background:none;"><svg viewBox="0 0 100 100" width="64" height="64" role="img" aria-label="スタッフイメージ">
+<circle cx="50" cy="50" r="50" fill="#F3ECDD" stroke="#9C7A3C" stroke-width="1.5"/>
+<path d="M28,88 C28,68 36,58 50,58 C64,58 72,68 72,88 Z" fill="#9AA0A6"/>
+<circle cx="50" cy="42" r="17" fill="#F1D3B0"/>
+<path d="M30,41 C28,23 38,12 50,12 C62,12 72,23 70,41 C70,33 68,44 63,46 C66,36 62,29 50,29 C38,29 34,36 37,46 C32,44 30,33 30,41 Z" fill="#6b4a2e"/>
+<circle cx="44" cy="42" r="1.6" fill="#3a2f28"/>
+<circle cx="56" cy="42" r="1.6" fill="#3a2f28"/>
+<path d="M45,49 Q50,52 55,49" stroke="#3a2f28" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+</svg></div><div><strong style="color:var(--ink);">モエ</strong><span style="color:var(--silver); font-size:0.78rem;">(写真は後日差し替え予定)</span><br>違う会社から転職したが、私に合った練習カリキュラムで進めてくれるので、無理なく成長できる。アシスタント時代に大変なモデル集客のノウハウもしっかりと教えてもらえるので安心してデビューを迎えられる。</div></div>
+    </div>
+    <p style="margin-top:18px; color:var(--silver); font-size:0.85rem;">※コメントは実際のスタッフの声です。お写真をいただき次第、イラストから差し替えます。</p>
+  </div>
+</section>
+
+<!-- ============ PROPOSITION: 1日の流れ ============ -->
+<section id="dayflow" style="background:var(--ink-soft);">
+  <div class="wrap">
+    <span class="eyebrow">新卒スタッフの1日<span class="draft-badge" style="margin-left:10px;">DRAFT</span></span>
+    <h2>入社後、こんな1日を過ごします</h2>
+    <div class="flow">
+      <div class="flow-row"><div class="time">9:00</div><div>出社・朝礼、店舗の清掃と準備</div></div>
+      <div class="flow-row"><div class="time">10:00</div><div>技術練習／先輩スタイリストのアシスタント業務</div></div>
+      <div class="flow-row"><div class="time">12:00</div><div>休憩</div></div>
+      <div class="flow-row"><div class="time">13:00</div><div>接客・カウンセリング補助、カラー/パーマのヘルプ業務</div></div>
+      <div class="flow-row"><div class="time">18:00</div><div>技術練習、翌日の準備</div></div>
+      <div class="flow-row"><div class="time">20:00</div><div>退勤</div></div>
+    </div>
+    <p style="margin-top:18px; color:var(--silver); font-size:0.85rem;">※上記は仮の流れです。実際のシフトや業務内容に合わせて差し替えをお願いします。</p>
+  </div>
+</section>
+
+<!-- ============ PROPOSITION: 勤務地 ============ -->
+<section id="stores">
+  <div class="wrap">
+    <span class="eyebrow">勤務地</span>
+    <h2>oro / plata / mem</h2>
+    <div class="store-grid">
+      <div class="store-card"><h3>oro</h3><div class="area">札幌市 円山エリア<span class="draft-badge" style="margin-left:8px;">住所DRAFT</span></div><p style="font-size:0.88rem; margin:0;">店舗の特徴・客層をここに記載予定</p></div>
+      <div class="store-card"><h3>plata</h3><div class="area">札幌市 円山エリア<span class="draft-badge" style="margin-left:8px;">住所DRAFT</span></div><p style="font-size:0.88rem; margin:0;">店舗の特徴・客層をここに記載予定</p></div>
+      <div class="store-card"><h3>mem</h3><div class="area">札幌市 円山エリア<span class="draft-badge" style="margin-left:8px;">住所DRAFT</span></div><p style="font-size:0.88rem; margin:0;">店舗の特徴・客層をここに記載予定</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROPOSITION: 会社概要／募集要項 ============ -->
+<section id="company" style="background:var(--ink-soft);">
+  <div class="wrap">
+    <span class="eyebrow">会社概要</span>
+    <h2>株式会社Dulce</h2>
+    <table>
+      <tr><th>会社名</th><td>株式会社Dulce</td></tr>
+      <tr><th>事業内容</th><td>美容室運営（oro / plata / mem）</td></tr>
+      <tr><th>所在地</th><td>札幌市中央区界川2丁目8-8</td></tr>
+      <tr><th>代表者</th><td>大谷拓郎</td></tr>
+      <tr><th>設立</th><td>2017年2月</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="requirements">
+  <div class="wrap">
+    <span class="eyebrow">募集要項（新卒）</span>
+    <h2>Recruiting Details</h2>
+    <table>
+      <tr><th>雇用形態</th><td>正社員／業務委託／パート／アルバイト</td></tr>
+      <tr><th>給与</th><td>スタイリスト　月給21万円〜<br>アシスタント　月給19万円〜<br>パート　時給1,200円〜<br>業務委託　歩合50%〜60%<br>※正社員3職種共通でプラス歩合給あり<br>※3ヶ月試用期間あり</td></tr>
+      <tr><th>諸手当</th><td>交通費（上限2万円）／住宅手当1万円／朝練習手当1,000円〜／役職手当1万円〜／子供手当5,000円〜</td></tr>
+      <tr><th>昇給・賞与</th><td>昇給　年1回　5,000円〜<br>賞与　年2回（実績に応じて）</td></tr>
+      <tr><th>勤務時間</th><td>基本10:00〜19:00（曜日により変動あり）</td></tr>
+      <tr><th>休日・休暇</th><td>週休二日制<br>ゴールデンウィーク3日間／お盆3日間／お正月5日間</td></tr>
+      <tr><th>待遇・福利厚生</th><td>厚生年金／雇用保険／労災<br>人間力育成カウンセリング／ホスピタリティ教育／技術指導カリキュラム／数字教育制度</td></tr>
+      <tr><th>選考プロセス</th><td><span class="draft-badge">DRAFT</span> 見学 → 面接 の流れを想定（ご確認ください）</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section id="closing">
+  <div class="wrap">
+    <span class="eyebrow">応募はこちらから</span>
+    <h2>まずは、見学・面接から。</h2>
+    <p class="lead">簡単な適性アンケートにお答えいただくだけで応募が完了します。<br>あなたがどんな美容師を目指したいか、じっくり聞かせてください。</p>
+    <button class="apply-btn" onclick="openSurvey()">応募する（適性アンケートへ）</button>
+  </div>
+</section>
+
+<footer>© 株式会社Dulce　oro / plata / mem</footer>
+
+<!-- ============ 適性アンケート モーダル ============ -->
+<div id="survey-overlay">
+  <div id="survey-modal">
+    <button class="close-x" onclick="closeSurvey()" aria-label="閉じる">×</button>
+
+    <div id="survey-form-wrap">
+      <h3>適性アンケート</h3>
+      <p class="lead-note">見学・面接のご案内の前に、簡単に教えてください。所要時間 約2分。</p>
+
+      <form id="survey-form" onsubmit="return submitSurvey(event)">
+        <div class="field">
+          <label>お名前<span class="hint">必須</span></label>
+          <input type="text" name="name" required>
+        </div>
+
+        <div class="field">
+          <label>連絡先（電話番号）<span class="hint">必須</span></label>
+          <input type="tel" name="tel" required>
+        </div>
+
+        <div class="field">
+          <label>メールアドレス</label>
+          <input type="email" name="email">
+        </div>
+
+        <div class="field">
+          <label>ご状況</label>
+          <select name="status">
+            <option>美容学校 在学中</option>
+            <option>美容学校 卒業見込み</option>
+            <option>既卒（美容師免許あり）</option>
+            <option>その他</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>美容師になりたい熱量は？<span class="hint">1（まだ迷っている）〜5（本気で目指したい）</span></label>
+          <div class="scale">
+            <label><input type="radio" name="passion" value="1" required><span>1</span></label>
+            <label><input type="radio" name="passion" value="2"><span>2</span></label>
+            <label><input type="radio" name="passion" value="3"><span>3</span></label>
+            <label><input type="radio" name="passion" value="4"><span>4</span></label>
+            <label><input type="radio" name="passion" value="5"><span>5</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>どんな美容師になりたいですか？<span class="hint">当てはまるものすべて</span></label>
+          <div class="check-grid">
+            <label><input type="checkbox" name="goal" value="技術を極めたい"><span>技術を極めたい</span></label>
+            <label><input type="checkbox" name="goal" value="接客・ホスピタリティ重視"><span>接客・ホスピタリティを大事にしたい</span></label>
+            <label><input type="checkbox" name="goal" value="将来独立・店長志向"><span>将来は店長・独立を目指したい</span></label>
+            <label><input type="checkbox" name="goal" value="安定した収入がほしい"><span>安定した収入を得たい</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>もう少し詳しく教えてください</label>
+          <textarea name="free_text" placeholder="どんな美容師になりたいか、自由にお書きください"></textarea>
+        </div>
+
+        <div class="field">
+          <label>希望勤務地</label>
+          <select name="store">
+            <option>oro</option>
+            <option>plata</option>
+            <option>mem</option>
+            <option>どこでも可</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>見学・面接の希望時期</label>
+          <select name="timing">
+            <option>できるだけ早く</option>
+            <option>1ヶ月以内</option>
+            <option>2〜3ヶ月以内</option>
+            <option>まだ未定</option>
+          </select>
+        </div>
+
+        <button type="submit" class="submit-btn">送信する</button>
+        <!-- 次フェーズ：ここでGAS Web AppへPOSTし、スプレッドシート格納＋LINE通知を行う想定 -->
+      </form>
+    </div>
+
+    <div id="survey-thanks">
+      <div class="mark">Thank you</div>
+      <p>ご回答ありがとうございました。<br>内容を確認のうえ、担当より見学・面接についてご連絡いたします。</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openSurvey(){
+  document.getElementById('survey-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSurvey(){
+  document.getElementById('survey-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function submitSurvey(e){
+  e.preventDefault();
+  // TODO(次フェーズ): fetch(GAS_WEBAPP_URL, {method:'POST', mode:'no-cors', body: new FormData(e.target)})
+  document.getElementById('survey-form-wrap').style.display = 'none';
+  document.getElementById('survey-thanks').classList.add('show');
+  return false;
+}
+document.getElementById('survey-overlay').addEventListener('click', function(e){
+  if(e.target === this) closeSurvey();
+});
+</script>
+
+</body>
+</html>
