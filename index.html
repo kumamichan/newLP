@@ -66,6 +66,16 @@
     transition:background .2s, color .2s;
   }
   .cta-top:hover, .cta-top:focus-visible{background:var(--gold); color:#FFFFFF;}
+  .cta-group{display:flex; align-items:center; gap:10px;}
+  .cta-line{
+    display:inline-block; background:#06C755; color:#FFFFFF; text-decoration:none;
+    padding:9px 16px; border-radius:2px; font-size:0.85rem; font-weight:700; letter-spacing:0.06em; white-space:nowrap;
+  }
+  .cta-line:hover, .cta-line:focus-visible{background:#05a847; color:#FFFFFF;}
+  @media (max-width:640px){
+    .cta-group{gap:6px;}
+    .cta-line{padding:8px 10px; font-size:0.75rem;}
+  }
 
   section{padding:88px 28px; position:relative; z-index:2;}
   .wrap{max-width:var(--maxw); margin:0 auto;}
@@ -239,7 +249,10 @@
 <header>
   <div class="brand">Dulce<small>HAIR SALON GROUP</small></div>
   <div class="stores"><span>oro</span><span>plata</span><span>mem</span></div>
-  <a class="cta-top" href="#closing">応募する</a>
+  <div class="cta-group">
+    <a class="cta-line" href="https://lin.ee/QKponmkV" target="_blank" rel="noopener">LINEで相談する</a>
+    <a class="cta-top" href="#" onclick="openSurvey(); return false;">応募する</a>
+  </div>
 </header>
 
 <!-- ============ LEAD ============ -->
